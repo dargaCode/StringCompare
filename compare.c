@@ -53,7 +53,7 @@ bool compare(char* a, char* b)
         char b_char = *(b + i);
         bool char_match = a_char == b_char;
 
-        printf("Char #%i: %c, %c - ", i, a_char, b_char);
+        printf("Char #%i: \"%c\"|\"%c\" -", i, a_char, b_char);
         printf(char_match ? "Match\n" : "NO MATCH!\n");
 
         if (!char_match)
