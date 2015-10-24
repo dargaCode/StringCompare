@@ -12,6 +12,9 @@ int main(int argc, char* argv[])
     printf("\nEnter string A: ");
     char* a = GetString();
 
+    printf("TESTING STRING LENGTH: %i\n", string_length(a));
+    return 0;
+
     printf("Enter string B: ");
     char* b = GetString();
     printf("\n");
@@ -25,13 +28,13 @@ int main(int argc, char* argv[])
 
 int string_length(char* address)
 {
-    //int len = 0;
-
-    int end = *(address + 1);
-    printf("CHECK LENGTH %c\n", end);
-
-
-    return end == '\0';
+    int len = 0;
+    while (*(address + len) != '\0')
+    {
+        printf("char at %i = %c\n", len, *(address + len));
+        len++;
+    }
+    return len;
 }
 
 bool compare(char* a, char* b)
