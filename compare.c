@@ -3,6 +3,7 @@
 #include <string.h>
 
 // function prototypes
+int string_length(char* address);
 bool compare(char* a, char* b);
 
 int main(int argc, char* argv[])
@@ -10,6 +11,7 @@ int main(int argc, char* argv[])
     // "char*" = "string"
     printf("\nEnter string A: ");
     char* a = GetString();
+
     printf("Enter string B: ");
     char* b = GetString();
     printf("\n");
@@ -19,6 +21,17 @@ int main(int argc, char* argv[])
     printf(match ? "Strings match!\n" :
         "Strings do not match!\n");
     printf("\n");
+}
+
+int string_length(char* address)
+{
+    //int len = 0;
+
+    int end = *(address + 1);
+    printf("CHECK LENGTH %c\n", end);
+
+
+    return end == '\0';
 }
 
 bool compare(char* a, char* b)
