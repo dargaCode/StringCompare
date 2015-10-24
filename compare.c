@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <cs50.h>
-#include <string.h>
 
 // function prototypes
 int string_length(char* address);
@@ -11,9 +10,6 @@ int main(int argc, char* argv[])
     // "char*" = "string"
     printf("\nEnter string A: ");
     char* a = GetString();
-
-    printf("TESTING STRING LENGTH: %i\n", string_length(a));
-    return 0;
 
     printf("Enter string B: ");
     char* b = GetString();
@@ -31,7 +27,6 @@ int string_length(char* address)
     int len = 0;
     while (*(address + len) != '\0')
     {
-        printf("char at %i = %c\n", len, *(address + len));
         len++;
     }
     return len;
@@ -39,8 +34,8 @@ int string_length(char* address)
 
 bool compare(char* a, char* b)
 {
-    int len_a = strlen(a);
-    int len_b = strlen(b);
+    int len_a = string_length(a);
+    int len_b = string_length(b);
     bool len_match = len_a == len_b;
 
     printf("A length: %i, B length: %i - ", len_a, len_b);
@@ -52,7 +47,7 @@ bool compare(char* a, char* b)
     }
 
     printf("\n");
-    for (int i = 0; i < strlen(a); i++)
+    for (int i = 0; i < len_a; i++)
     {
         char a_char = *(a + i);
         char b_char = *(b + i);
