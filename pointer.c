@@ -8,23 +8,34 @@ bool compare(char* a, char* b);
 int main(int argc, char* argv[])
 {
     // "char*" = "string"
-    printf("Enter string a: ");
+    printf("\nEnter string A: ");
     char* a = GetString();
-    printf("Enter string b: ");
+    printf("Enter string B: ");
     char* b = GetString();
+    printf("\n");
 
     bool match = compare(a, b);
-    printf("Do strings match? ");
-    printf(match ? "Yes!\n" : "No!\n");
+    printf("\n");
+    printf(match ? "Strings match!\n" :
+        "Strings do not match!\n");
+    printf("\n");
 }
 
 bool compare(char* a, char* b)
 {
-    // time for some pointer math
-    //a* = 'z';
-    
-    printf("%i \n", strlen(a));
+    int len_a = strlen(a);
+    int len_b = strlen(b);
+    bool len_match = len_a == len_b;
 
+    printf("A length: %i, B length: %i - ", len_a, len_b);
+    printf(len_match ? "Match\n" : "NO MATCH!\n");
+
+    if (!len_match)
+    {
+        return false;
+    }
+
+    printf("\n");
     for (int i = 0; i < strlen(a); i++)
     {
         char a_char = *(a + i);
