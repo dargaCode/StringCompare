@@ -7,6 +7,7 @@ bool compare(char* a, char* b);
 
 int main(int argc, char* argv[])
 {
+    // "char*" = "string"
     printf("Enter string a: ");
     char* a = GetString();
     printf("Enter string b: ");
@@ -14,7 +15,7 @@ int main(int argc, char* argv[])
 
     bool match = compare(a, b);
     printf("Do strings match? ");
-    printf(match ? "True\n" : "False\n"); 
+    printf(match ? "Yes!\n" : "No!\n");
 }
 
 bool compare(char* a, char* b)
@@ -23,11 +24,20 @@ bool compare(char* a, char* b)
     //a* = 'z';
     
     printf("%i \n", strlen(a));
-    
+
     for (int i = 0; i < strlen(a); i++)
     {
-        printf("char %i: %c \n", i, *(a + i));
-    }
+        char a_char = *(a + i);
+        char b_char = *(b + i);
+        bool char_match = a_char == b_char;
 
-    return false;
+        printf("Char #%i: %c, %c - ", i, a_char, b_char);
+        printf(char_match ? "Match\n" : "NO MATCH!\n");
+
+        if (!char_match)
+        {
+            return false;
+        }
+    }
+    return true;
 }
